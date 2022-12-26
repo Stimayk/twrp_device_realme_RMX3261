@@ -443,3 +443,12 @@ on property:ro.bootmode=factorytest
 
 on property:ro.bootmode=factorytest && property:ro.debuggable=0
     setprop sys.usb.config vser
+
+# Custom
+service tswake-default /system/bin/hw/vendor.unisoc.hardware.tswake-service
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+on post-fs
+    start tswake-default
