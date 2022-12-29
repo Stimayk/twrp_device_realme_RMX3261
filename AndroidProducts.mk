@@ -5,3 +5,8 @@
 LOCAL_PATH := device/realme/RMX3261
 
 PRODUCT_MAKEFILES := $(LOCAL_PATH)/twrp_RMX3261.mk
+
+COMMON_LUNCH_CHOICES := \
+    twrp_RMX3261-user \
+    twrp_RMX3261-userdebug \
+    twrp_RMX3261-eng
