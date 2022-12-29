@@ -1,6 +1,6 @@
 # twrp_device_realme_RMX3261
 
-Bugs: mounting /data, fastbootd, touch does not work on some revisions (p.s. probably fixed)
+Bugs: mounting /data, fastbootd, touch does not work on some revisions (fixed)
 
 Build: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp/tree/twrp-11
 
