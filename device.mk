@@ -35,8 +35,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
-PRODUCT_PACKAGES += \
-    vendor.unisoc.hardware.tswake-service
 
 PRODUCT_PACKAGES += \
     libion.recovery \

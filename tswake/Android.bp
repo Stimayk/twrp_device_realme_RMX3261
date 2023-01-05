@@ -1,8 +1,0 @@
-cc_binary {
-    name: "vendor.unisoc.hardware.tswake-service",
-    relative_install_path: "hw",
-    srcs: ["main.c"],
-    cflags: ["-DANDROID"],
-    shared_libs: ["liblog"],
-    recovery: true,
-}
