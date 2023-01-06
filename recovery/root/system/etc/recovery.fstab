@@ -29,10 +29,10 @@
 /dev/block/by-name/logo                  /logo               emmc    defaults    defaults
 /dev/block/by-name/fbootlogo             /fbootlogo          emmc    defaults    defaults
 
-system /system ext4 ro,barrier=1 wait,avb=vbmeta_system,logical,slotselect
-system_ext /system_ext ext4 ro,barrier=1 wait,avb=vbmeta_system_ext,logical,slotselect
-vendor /vendor ext4 ro,barrier=1 wait,avb=vbmeta_vendor,logical,slotselect
-product /product ext4 ro,barrier=1 wait,avb=vbmeta,logical,slotselect
+system /system ext4 ro,barrier=1 wait,logical,slotselect
+system_ext /system_ext ext4 ro,barrier=1 wait,logical,slotselect
+vendor /vendor ext4 ro,barrier=1 wait,logical,slotselect
+product /product ext4 ro,barrier=1 wait,logical,slotselect
 /dev/block/by-name/metadata /metadata    ext4 nodev,noatime,nosuid,errors=panic wait,formattable,check
 
 /dev/block/by-name/socko /socko ext4 ro,noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,slotselect

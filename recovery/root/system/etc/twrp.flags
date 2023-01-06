@@ -9,10 +9,6 @@ product /product ext4 ro,barrier=1 wait,logical,first_stage_mount,slotselect
 /product_image     emmc     /dev/block/mapper/product       flags=display="product_image";flashimg=1;backup=1
 
 /data                           f2fs     /dev/block/by-name/userdata        flags=fileencryption=aes-256-cts
-
-/devices/platform/soc/soc:aon/5fff0000.usb/musb-hdrc.*.auto/usb*	auto	vfat flags=display="OTG-USB" voldmanaged=usbdisk:auto
-/devices/platform/soc/soc:ap-apb/71100000.sdio/mmc_host/mmc1/mmc1:*/block/mmcblk1      auto         vfat flags=display="External SD-Card" voldmanaged=sdcard0:auto,encryptable=footer
-
 /spl                            emmc     /dev/block/mmcblk0boot0                                                                      
 /spl_bk                         emmc     /dev/block/mmcblk0boot1                                                                   
 /uboot                          emmc     /dev/block/mmcblk0p8                              
