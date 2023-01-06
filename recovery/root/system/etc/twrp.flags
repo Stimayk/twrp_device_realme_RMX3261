@@ -1,0 +1,49 @@
+system /system ext4 ro,barrier=1 wait,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey,slotselect
+system_ext /system_ext ext4 ro,barrier=1 wait,logical,first_stage_mount,slotselect
+vendor /vendor ext4 ro,barrier=1 wait,logical,first_stage_mount,slotselect
+product /product ext4 ro,barrier=1 wait,logical,first_stage_mount,slotselect
+
+/system_root      ext4     /dev/block/mapper/system       flags=backup=1
+/system_image     emmc     /dev/block/mapper/system       flags=backup=1;flashimg=1
+/vendor_image     emmc     /dev/block/mapper/vendor       flags=display="vendor_image";flashimg=1;backup=1
+/product_image     emmc     /dev/block/mapper/product       flags=display="product_image";flashimg=1;backup=1
+
+/data                           f2fs     /dev/block/by-name/userdata        flags=fileencryption=aes-256-cts
+
+/devices/platform/soc/soc:aon/5fff0000.usb/musb-hdrc.*.auto/usb*	auto	vfat flags=display="OTG-USB" voldmanaged=usbdisk:auto
+/devices/platform/soc/soc:ap-apb/71100000.sdio/mmc_host/mmc1/mmc1:*/block/mmcblk1      auto         vfat flags=display="External SD-Card" voldmanaged=sdcard0:auto,encryptable=footer
+
+/spl                            emmc     /dev/block/mmcblk0boot0                                                                      
+/spl_bk                         emmc     /dev/block/mmcblk0boot1                                                                   
+/uboot                          emmc     /dev/block/mmcblk0p8                              
+/uboot_bak                      emmc     /dev/block/mmcblk0p9
+/uboot_log                      emmc     /dev/block/mmcblk0p10                       
+/sml                            emmc     /dev/block/by-name/sml                        
+/sml_bak                        emmc     /dev/block/mmcblk0p7                        
+/tos                            emmc     /dev/block/by-name/trustos                       
+/tos_bak                        emmc     /dev/block/mmcblk0p5                 
+/teecfg                         emmc     /dev/block/by-name/teecfg                           
+/teecfg_bak                     emmc     /dev/block/mmcblk0p39                   
+/vbmeta                         emmc     /dev/block/by-name/vbmeta                                   flags=backup=1;flashimg=1      
+/vbmeta_bak                     emmc     /dev/block/mmcblk0p57                    
+/vbmeta_system                  emmc     /dev/block/by-name/vbmeta_system            
+/vbmeta_vendor                  emmc     /dev/block/by-name/vbmeta_vendor
+/vbmeta_product                 emmc     /dev/block/by-name/vbmeta_product
+/vbmeta_system_ext              emmc     /dev/block/by-name/vbmeta_system_ext     
+/dtbo                           emmc     /dev/block/by-name/dtbo                            
+/ltedsp                         emmc     /dev/block/by-name/l_ldsp                           
+/ltegdsp                        emmc     /dev/block/by-name/l_gdsp                           
+/lteagdsp                       emmc     /dev/block/by-name/l_agdsp                       
+/ltemodem                       emmc     /dev/block/by-name/l_modem                  
+/ltefixnv1                      emmc     /dev/block/by-name/l_fixnv1                       
+/ltefixnv2                      emmc     /dev/block/by-name/l_fixnv2                    
+/ltedeltanv                     emmc     /dev/block/by-name/l_deltanv                     
+/lteruntimenv1                  emmc     /dev/block/by-name/l_runtimenv1             
+/lteruntimenv2                  emmc     /dev/block/by-name/l_runtimenv2             
+/wcnmodem                       emmc     /dev/block/by-name/wcnmodem                
+/pmsys                          emmc     /dev/block/by-name/pm_sys                         
+/misc                           emmc     /dev/block/by-name/misc                  flags=backup=1;flashimg=1        
+/boot                           emmc     /dev/block/by-name/boot                  flags=backup=1;flashimg=1
+/persist                        emmc     /dev/block/by-name/persist              
+/logo                           emmc     /dev/block/by-name/logo                  
+/fbootlogo                      emmc     /dev/block/by-name/fbootlogo            
